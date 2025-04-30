@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>My Recipes</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back-button">Back</a>
+    <h1>My Recipes</h1>
+
+    <div class="recipe-list">
+      {% for recipe in recipes %}
+        <div class="card recipe-card">
+            <div class="recipe-header">
+                <h2 class="recipe-title">
+                  <a href="/recipe/{{ loop.index0 }}" class="recipe-link">{{ recipe.title }}</a>
+                </h2>
+                <a class="delete-btn" href="/delete-recipe/{{ loop.index0 }}">
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>              
+        </div>
+      {% endfor %}
+    </div>
+
+    <a href="/add-recipe" class="button">Add Recipe</a>
+  <div class="container">
+</body>
+</html>

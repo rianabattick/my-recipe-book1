@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <title>Add Kitchen Item</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+  <a href="/kitchen" class="back-button">Back to Kitchen</a>
+  <h1>Add an Item to Your Kitchen</h1>
+
+  <div class="card">
+    <form method="POST" class="recipe-form">
+      <input type="text" name="item" placeholder="Ingredient name" required><br>
+      <button type="submit" class="button">Add Item</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

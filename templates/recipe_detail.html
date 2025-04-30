@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <title>{{ recipe.title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <a href="/recipes" class="back-button">Back to Recipes</a>
+    <div class="card">
+      <h2>{{ recipe.title }}</h2>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        {% for item in recipe.ingredients.split(',') %}
+            <li>{{ item.strip() }}</li>
+        {% endfor %}
+      </ul>
+      <p><strong>Method:</strong></p>
+      <ol>
+        {% for step in recipe.method.split('.') %}
+        {% if step.strip() %}
+            <li>{{ step.strip() }}.</li>
+        {% endif %}
+        {% endfor %}
+       </ol>
+    </div>
+  </div>
+</body>
+</html>

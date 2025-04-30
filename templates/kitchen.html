@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>My Kitchen</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+  <a href="/" class="back-button">Back</a>
+  <h1>My Kitchen</h1>
+
+  <div class="kitchen-list">
+    {% if kitchen %}
+    <div class="pantry-door">
+        <div class="pantry-card">
+          <ul>
+            {% for item in kitchen %}
+              <li>{{ item }}
+                <a class="delete-btn" href="/delete-item/{{ loop.index0 }}">
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      
+
+    {% else %}
+      <p>Your kitchen is empty! Add your first ingredient below.</p>
+    {% endif %}
+  </div>
+
+  <div class="button-row">
+    <a href="/add-item" class="button">Add Item</a>
+    <a href="/suggest" class="button">Suggest a Meal</a>
+  </div>
+</div>
+  
+
+</body>
+</html>

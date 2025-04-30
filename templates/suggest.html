@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <title>Suggest a Recipe</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+  <a href="/kitchen" class="back-button">Back to Kitchen</a>
+  <div class="suggest-container">
+    <div class="suggest-title">Suggest a Recipe</div>
+    <div class="suggest-subtitle">
+        Get recipe suggestions based on the ingredients in your kitchen.<br>
+        <em>(Powered by AI — generation may take a moment.)</em>
+    </div>
+
+    <form method="POST">
+      <button type="submit" class="suggest-button">Suggest Recipe</button>
+    </form>
+
+    {% if suggestion %}
+      <div class="card suggest-output fade-in">{{ suggestion }}</div>
+    {% endif %}
+  </div>
+</div>
+</body>
+</html>
+
