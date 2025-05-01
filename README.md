@@ -2,6 +2,8 @@
 
 I absolutely love to cook and **My Recipe Book** is a pantry-themed, AI-powered web app that lets users save, view, and organize recipes — and get intelligent meal suggestions based on what's in their kitchen. Built with Python(Flask), HTML, and CSS, it features a cozy wood-textured UI with animated pantry elements.
 
+Click here to try -->   [![Live Site](https://img.shields.io/badge/live-demo-FF6F61?style=for-the-badge&logo=render&logoColor=white)](https://my-recipe-book-rioq.onrender.com)
+
 ---
 
 ##  Features
