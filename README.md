@@ -24,6 +24,10 @@ I absolutely love to cook and **My Recipe Book** is a pantry-themed, AI-powered 
 
 ---
 
+## App Walkthrough
+
+https://drive.google.com/file/d/1QoPri3idCMnG9nlKQzDiDrqrSubisWE2/view?usp=sharing
+
 ## Note
 
 You’ll need an OpenAI API key to use the meal suggestion feature. Sign up for a free OpenAI account and paste your key in the .env or export it to your terminal session as shown below.
