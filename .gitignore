@@ -1,0 +1,13 @@
+# Ignore API keys and environment config
+.env
+
+# Ignore virtual environments (if you used one)
+venv/
+__pycache__/
+
+# Ignore macOS metadata
+.DS_Store
+
+# Ignore Python bytecode
+*.pyc
+*.pyo
