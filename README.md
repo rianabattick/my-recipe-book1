@@ -50,10 +50,15 @@ You’ll need an OpenAI API key to use the meal suggestion feature. Sign up for 
 
 ## Future Enhancements
 
-- Upload recipe images
-- Categorize recipes (e.g. breakfast, dinner)
-- Share or print recipes
-- Mobile layout improvements
+- Upload recipe images (v2)
+- Login/Sign Up (v2)
+- Categorize recipes (e.g. breakfast, dinner) (v2)
+- Share or print recipes (v2)
+- Mobile layout improvements (v2)
+- Social element: share recipes with friends or make “cookbooks” from favorites
+- Generate shopping list for missing ingredients
+- Let users tag recipes by culture (Caribbean, Asian, Mediterranean, etc.)
+- Filter AI suggestions by dietary needs (vegetarian, halal, gluten-free)
 
 ## License
 
