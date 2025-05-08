@@ -1,29 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <title>Suggest a Recipe</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="container">
-  <a href="/kitchen" class="back-button">Back to Kitchen</a>
-  <div class="suggest-container">
-    <div class="suggest-title">Suggest a Recipe</div>
-    <div class="suggest-subtitle">
-        Get recipe suggestions based on the ingredients in your kitchen.<br>
-        <em>(Powered by AI — generation may take a moment.)</em>
-    </div>
+{% extends 'base.html' %}
 
-    <form method="POST">
-      <button type="submit" class="suggest-button">Suggest Recipe</button>
-    </form>
+{% block title %}Suggest a Recipe{% endblock %}
 
-    {% if suggestion %}
-      <div class="card suggest-output fade-in">{{ suggestion }}</div>
-    {% endif %}
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6 space-y-6">
+
+  <!-- Back to Kitchen Button -->
+  <a href="/kitchen" class="text-primary hover:underline font-semibold block">
+    ← Back to Kitchen
+  </a>
+
+  <!-- Title and Subtitle -->
+  <div class="text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-2">Suggest a Recipe</h2>
+    <p class="text-gray-600">
+      Get recipe suggestions based on the ingredients in your kitchen.<br>
+      <em class="text-sm text-gray-400">(Powered by AI — generation may take a moment.)</em>
+    </p>
   </div>
-</div>
-</body>
-</html>
 
+  <!-- Suggest Recipe Button -->
+  <form method="POST" class="text-center">
+    <button type="submit"
+            class="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-dark transition">
+      Suggest Recipe
+    </button>
+  </form>
+
+  <!-- Display AI Suggestion if Available -->
+  {% if suggestion %}
+    <div class="bg-accent/40 border border-accent text-gray-800 p-4 rounded-md shadow-md animate-fade-in">
+      {{ suggestion }}
+    </div>
+  {% endif %}
+
+</div>
+{% endblock %}
