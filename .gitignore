@@ -1,7 +1,7 @@
 # Ignore API keys and environment config
 .env
 
-# Ignore virtual environments (if you used one)
+# Ignore virtual environments 
 venv/
 __pycache__/
 
@@ -11,3 +11,7 @@ __pycache__/
 # Ignore Python bytecode
 *.pyc
 *.pyo
+
+# Ignore Image uploads
+/static/uploads/
+

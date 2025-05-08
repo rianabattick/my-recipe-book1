@@ -2,16 +2,22 @@ from flask import Flask, render_template, request, redirect
 import json
 import os
 import openai
+import time
+from PIL import Image
 from dotenv import load_dotenv
+from werkzeug.utils import secure_filename
+
 load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
 
-
 RECIPE_FILE = 'data/recipes.json'
 KITCHEN_FILE = 'data/kitchen.json'
+UPLOAD_FOLDER = 'static/uploads'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Utility functions
 def load_data(file_path):
@@ -23,6 +29,9 @@ def load_data(file_path):
 def save_data(file_path, data):
     with open(file_path, 'w') as f:
         json.dump(data, f, indent=4)
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # ROUTES
 
@@ -47,7 +56,7 @@ def recipe_detail(id):
     recipes = load_data(RECIPE_FILE)
     if 0 <= id < len(recipes):
         recipe = recipes[id]
-        return render_template('recipe_detail.html', recipe=recipe)
+        return render_template('recipe_detail.html', recipe=recipe, id=id)
     else:
         return "Recipe not found", 404
 
@@ -135,6 +144,42 @@ def suggest():
 
     return render_template('suggest.html', suggestion=suggestion)
 
+@app.route('/upload-image/<int:id>', methods=['POST'])
+def upload_image(id):
+    recipes = load_data(RECIPE_FILE)
+
+    if 0 <= id < len(recipes):
+        file = request.files.get('image')
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+
+            #ensure unique filename
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            if os.path.exists(filepath):
+                filename = f"{int(time.time())}_{filename}"
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(filepath)
+
+            # Save image filename in recipe
+            recipes[id]['image'] = filename
+            save_data(RECIPE_FILE, recipes)
+
+    return redirect(f'/recipe/{id}')
+
+@app.route('/delete-image/<int:id>', methods=['POST'])
+def delete_image(id):
+    recipes = load_data(RECIPE_FILE)
+
+    if 0 <= id < len(recipes):
+        image_filename = recipes[id].get('image')
+        if image_filename:
+            image_path = os.path.join(app.config['UPLOAD_FOLDER'], image_filename)
+            if os.path.exists(image_path):
+                os.remove(image_path)
+            recipes[id]['image'] = None
+            save_data(RECIPE_FILE, recipes)
+
+    return redirect(f'/recipe/{id}')
 
 
 

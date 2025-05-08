@@ -1,10 +1,5 @@
 [
     {
-        "title": "test",
-        "ingredients": "test",
-        "method": "test"
-    },
-    {
         "title": "Fried Dumplings",
         "ingredients": "Flour, Sugar, Baking Powder, Salt, Butter, Milk, Cooking Oil",
         "method": "2 cups all purpose flour.\r\n2 tbsp sugar.\r\n1 tbsp baking powder.\r\n1 teaspoon salt.\r\n2 tbsp butter.\r\n1 cup milk - pour a little and kneed, repeat.\r\nLet sit for 30 mins - 1 hr - will be smooth after.\r\nDust some flour on and roll in palm of hands.\r\nPut balls in frying pot with medium heat.\r\nTurn after 2-3 mins."
@@ -12,12 +7,14 @@
     {
         "title": "Jerk Chicken",
         "ingredients": "Chicken (any pieces), Dry Jerk Seasoning (Chief Brand) or any kind of your choice, salt, wet jerk seasoning, browning ",
-        "method": "Season and Marinate for 2 hrs.\r\nPreheat oven at 400 degrees fahrenheit. \r\nPut in chicken uncovered for 1hr 20mins.\r\nBase chicken and flip chicken at 50mins.\r\nIncrease heat to 480 cook for 10-15 mins.\r\nCheck if both sides cooks, flip to original side to get more color for 5-10 mins.\r\nChop with knife."
+        "method": "Season and Marinate for 2 hrs.\r\nPreheat oven at 400 degrees fahrenheit. \r\nPut in chicken uncovered for 1hr 20mins.\r\nBase chicken and flip chicken at 50mins.\r\nIncrease heat to 480 cook for 10-15 mins.\r\nCheck if both sides cooks, flip to original side to get more color for 5-10 mins.\r\nChop with knife.",
+        "image": "jerk_chicken_.JPG"
     },
     {
         "title": "Cornmeal Porridge",
         "ingredients": "water, coconut milk, fine yellow cornmeal, vanilla extract, ground cinnamon, ground nutmeg, ground all-spice, sweetened condensed milk",
-        "method": "add 2 1/2 cups water and one can of coconut milk to a four-qt heavy-bottomed pot. Bring to a boil over medium-high heat.\u00a0\r\nadd 1 cup cornmeal and 1 1/2 cup water to a large mixing cup and whisk until smooth.\r\nOnce the liquid in the pot begins to boil gently, whisk in the cornmeal mixture and continue to whisk for about 1 minute, ensuring there are no lumps. Reduce heat to low and cover with a tight-fitting lid.\r\nCook over low heat for 15-20 minutes, stirring occasionally. When there are about 5 minutes left, stir in vanilla extract, cinnamon, nutmeg,\u00a0and allspice. \u00a0\r\nRemove from heat and stir in condensed milk to sweeten it."
+        "method": "add 2 1/2 cups water and one can of coconut milk to a four-qt heavy-bottomed pot. Bring to a boil over medium-high heat.\u00a0\r\nadd 1 cup cornmeal and 1 1/2 cup water to a large mixing cup and whisk until smooth.\r\nOnce the liquid in the pot begins to boil gently, whisk in the cornmeal mixture and continue to whisk for about 1 minute, ensuring there are no lumps. Reduce heat to low and cover with a tight-fitting lid.\r\nCook over low heat for 15-20 minutes, stirring occasionally. When there are about 5 minutes left, stir in vanilla extract, cinnamon, nutmeg,\u00a0and allspice. \u00a0\r\nRemove from heat and stir in condensed milk to sweeten it.",
+        "image": null
     },
     {
         "title": "Rice and Peas",

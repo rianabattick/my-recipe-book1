@@ -25,6 +25,22 @@
         {% endfor %}
        </ol>
     </div>
-  </div>
+    {% if recipe.image %}
+        <div class="image-card">
+            <img src="{{ url_for('static', filename='uploads/' + recipe.image) }}" alt="Recipe Image" class="recipe-image">
+        </div>
+
+        <form method="POST" action="/delete-image/{{ id }}">
+            <button type="submit" class="delete-btn">Delete Image</button>
+        </form>
+    {% else %}
+        <form method="POST" action="/upload-image/{{ id }}" enctype="multipart/form-data" class="image-upload-form">
+            <label for="image">Add a photo of this recipe:</label>
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Upload Image</button>
+        </form>
+    {% endif %}
+
+</div>
 </body>
 </html>
