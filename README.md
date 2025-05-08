@@ -19,7 +19,7 @@ Click here to try -->   [![Live Site](https://img.shields.io/badge/live-demo-FF6
 ## Tech Stack
 
 - Python (Flask)
-- HTML + CSS (Jinja2 templates)
+- HTML + CSS + (Jinja2 templates) + Tailwind CSS ( For Modern UI)
 - JSON (as a local datastore)
 - OpenAI API (for recipe suggestions)
   

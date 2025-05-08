@@ -1,44 +1,48 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>My Kitchen</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="container">
-  <a href="/" class="back-button">Back</a>
-  <h1>My Kitchen</h1>
+{% extends 'base.html' %}
 
-  <div class="kitchen-list">
-    {% if kitchen %}
-    <div class="pantry-door">
-        <div class="pantry-card">
-          <ul>
-            {% for item in kitchen %}
-              <li>{{ item }}
-                <a class="delete-btn" href="/delete-item/{{ loop.index0 }}">
-                  <i class="fa-solid fa-trash"></i>
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-      
+{% block title %}My Kitchen{% endblock %}
 
-    {% else %}
-      <p>Your kitchen is empty! Add your first ingredient below.</p>
-    {% endif %}
+{% block content %}
+<div class="max-w-3xl mx-auto space-y-8">
+
+  <!-- Back Button -->
+  <a href="/" class="text-primary hover:underline font-semibold">
+    ← Back
+  </a>
+
+  <!-- Page Title -->
+  <h1 class="text-3xl font-bold text-center text-gray-800">My Kitchen</h1>
+
+  <!-- Kitchen Item List -->
+  {% if kitchen %}
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <ul class="list-disc pl-6 space-y-2 text-gray-800">
+        {% for item in kitchen %}
+          <li class="flex justify-between items-center">
+            <span>{{ item }}</span>
+            <a href="/delete-item/{{ loop.index0 }}"
+               class="text-red-500 hover:text-red-700 transition">
+              <i class="fa-solid fa-trash"></i>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% else %}
+    <p class="text-gray-600 text-center italic">Your kitchen is empty! Add your first ingredient below.</p>
+  {% endif %}
+
+  <!-- Button Row -->
+  <div class="flex justify-center space-x-4 pt-4">
+    <a href="/add-item"
+       class="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-dark transition">
+      Add Item
+    </a>
+    <a href="/suggest"
+       class="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-dark transition">
+      Suggest a Meal
+    </a>
   </div>
 
-  <div class="button-row">
-    <a href="/add-item" class="button">Add Item</a>
-    <a href="/suggest" class="button">Suggest a Meal</a>
-  </div>
 </div>
-  
-
-</body>
-</html>
+{% endblock %}
