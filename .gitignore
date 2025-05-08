@@ -12,6 +12,4 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Ignore Image uploads
-/static/uploads/
 
