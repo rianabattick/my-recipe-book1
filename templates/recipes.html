@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>My Recipes</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-  <div class="container">
-    <a href="/" class="back-button">Back</a>
-    <h1>My Recipes</h1>
+{% extends 'base.html' %}
 
+<<<<<<< Updated upstream
     <div class="recipe-grid">
         {% for recipe in recipes %}
           <div class="recipe-card">
@@ -35,3 +25,47 @@
   <div class="container">
 </body>
 </html>
+=======
+{% block title %}My Recipes{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto space-y-8">
+
+  <!-- Back Button -->
+  <a href="/" class="text-primary hover:underline font-semibold">
+    ← Back
+  </a>
+
+  <!-- Page Title -->
+  <h1 class="text-3xl font-bold text-center text-gray-800">My Recipes</h1>
+
+  <!-- Recipe List -->
+  <div class="space-y-4">
+    {% for recipe in recipes %}
+      <div class="bg-white p-4 shadow-md rounded-md flex justify-between items-center">
+        <!-- Recipe Title Link -->
+        <h2 class="text-lg font-semibold text-gray-800">
+          <a href="/recipe/{{ loop.index0 }}" class="hover:text-primary transition">
+            {{ recipe.title }}
+          </a>
+        </h2>
+
+        <!-- Delete Icon -->
+        <a href="/delete-recipe/{{ loop.index0 }}" class="text-red-500 hover:text-red-700 transition">
+          <i class="fa-solid fa-trash"></i>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Add Recipe Button -->
+  <div class="text-center pt-6">
+    <a href="/add-recipe"
+       class="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-dark transition">
+      Add Recipe
+    </a>
+  </div>
+
+</div>
+{% endblock %}
+>>>>>>> Stashed changes
