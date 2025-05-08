@@ -11,20 +11,25 @@
     <a href="/" class="back-button">Back</a>
     <h1>My Recipes</h1>
 
-    <div class="recipe-list">
-      {% for recipe in recipes %}
-        <div class="card recipe-card">
+    <div class="recipe-grid">
+        {% for recipe in recipes %}
+          <div class="recipe-card">
             <div class="recipe-header">
-                <h2 class="recipe-title">
-                  <a href="/recipe/{{ loop.index0 }}" class="recipe-link">{{ recipe.title }}</a>
-                </h2>
-                <a class="delete-btn" href="/delete-recipe/{{ loop.index0 }}">
-                  <i class="fa-solid fa-trash"></i>
-                </a>
-              </div>              
-        </div>
-      {% endfor %}
-    </div>
+              <h2 class="recipe-title">
+                <a href="/recipe/{{ loop.index0 }}" class="recipe-link">{{ recipe.title }}</a>
+              </h2>
+              <a class="delete-btn" href="/delete-recipe/{{ loop.index0 }}">
+                <i class="fa-solid fa-trash"></i>
+              </a>
+            </div>
+      
+            {% if recipe.image %}
+              <img src="{{ url_for('static', filename='uploads/' + recipe.image) }}" alt="{{ recipe.title }}" class="thumbnail">
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      
 
     <a href="/add-recipe" class="button">Add Recipe</a>
   <div class="container">
